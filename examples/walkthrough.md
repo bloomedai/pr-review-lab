@@ -1,3 +1,3 @@
 # Walkthrough
 
-Start with the [review guide](old/guide.md).
+Start with the [review guide](guide.md).
