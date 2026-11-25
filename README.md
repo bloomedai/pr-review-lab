@@ -11,7 +11,9 @@ A small lab for reviewing pull requests, fixing broken Markdown links, and decid
 With Python 3.10+ and GitHub CLI signed in, run from the repo:
 
 ```sh
-python3 review.py plattenschieber/pr-review-lab 1
+python3 review.py bloomedai/pr-review-lab 1
 ```
 
-[Demo PR #1](https://github.com/plattenschieber/pr-review-lab/pull/1) shows the broken link, repair commit, and both review runs. Add `--codex` to include AI review of the diff.
+[Demo PR #1](https://github.com/bloomedai/pr-review-lab/pull/1) shows the broken link, repair commit, and both review runs. Add `--codex` to include AI review of the diff.
+
+[MIT License](LICENSE)
