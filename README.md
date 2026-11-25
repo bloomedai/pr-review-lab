@@ -1,6 +1,6 @@
 # PR Review Lab
 
-A small prototype of Claude Ship’s review → fix → approval flow. No Claude subscription required.
+A small lab for reviewing pull requests, fixing broken Markdown links, and deciding when a change is ready to approve.
 
 - **Review.** GitHub Actions checks relative Markdown links when a pull request opens or changes. The run logs show `hold` or `eligible` for that commit.
 - **Fix.** `--fix` commits a link repair when exactly one file matches the target name. The default policy limits repairs to `examples/*.md` on branches in this repo.
