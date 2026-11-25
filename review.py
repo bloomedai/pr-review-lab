@@ -21,7 +21,7 @@ POLICY_PATH = ".review-policy.json"
 def gh(*arguments, payload=None):
     command = ["gh", "api", *arguments]
     if payload is not None:
-        command.extend(["--input", "-"])
+        command.extend(["--method", "POST", "--input", "-"])
     result = subprocess.run(
         command, input=json.dumps(payload) if payload is not None else None,
         text=True, capture_output=True, check=False, timeout=60,
