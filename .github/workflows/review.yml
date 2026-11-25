@@ -1,0 +1,30 @@
+name: PR Review Lab
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+
+concurrency:
+  group: pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Review current revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LAB_REPO: ${{ github.repository }}
+          LAB_BASE: ${{ github.event.pull_request.base.sha }}
+          LAB_PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          lab_script="$RUNNER_TEMP/pr-review.py"
+          gh api "repos/$LAB_REPO/contents/review.py?ref=$LAB_BASE" --jq .content | base64 --decode > "$lab_script"
+          python3 "$lab_script" "$LAB_REPO" "$LAB_PR"

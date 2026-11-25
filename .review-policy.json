@@ -1,0 +1,7 @@
+{
+  "mode": "observe",
+  "approval_paths": ["examples/*.md"],
+  "repair_paths": ["examples/*.md"],
+  "required_checks": {},
+  "require_codex_for_approval": true
+}
